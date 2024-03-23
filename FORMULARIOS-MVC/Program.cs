@@ -1,3 +1,6 @@
+using FORMULARIOS_MVC.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace FORMULARIOS_MVC
 {
     public class Program
@@ -8,6 +11,8 @@ namespace FORMULARIOS_MVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<MvcContext>(opciones =>
+            opciones.UseSqlServer("name=DefaultConnection"));
 
             var app = builder.Build();
 
